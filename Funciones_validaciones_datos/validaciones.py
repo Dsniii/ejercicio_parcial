@@ -29,6 +29,17 @@ def mensaje_mostrar_alumno() -> str:
 
 
 def validar_home() -> str:
+    """
+    Solicita y valida los datos ingresados por el usuario en el "Home".
+    
+    Args:
+    Ninguno.
+
+    Returns:
+    Devuelve si el valor fue "1","2","3" o "4"
+
+    """
+    
     validacion = True
     opcion = input(mensaje_home())
 
@@ -54,6 +65,18 @@ def validar_home() -> str:
 
 
 def validar_opcion_1() -> str:
+    
+    """
+    Solicita y valida los datos ingresados por el usuario en "Alta de alumnos".
+    
+    Args:
+    Ninguno.
+
+    Returns:
+    Devuelve si el valor fue "1","2" o "3"
+
+    """
+    
     validacion = True
     opcion = input(mensaje_carga_alumnos())
 
@@ -76,6 +99,18 @@ def validar_opcion_1() -> str:
 
 
 def validar_opcion_2() -> str:
+    
+    """
+    Solicita y valida los datos ingresados por el usuario en "Mostrar alumnos".
+    
+    Args:
+    Ninguno.
+
+    Returns:
+    Devuelve si el valor fue "1","2" o "3"
+
+    """
+
     validacion = True
     opcion = input(mensaje_mostrar_alumnos())
 
@@ -98,6 +133,18 @@ def validar_opcion_2() -> str:
 
 
 def validar_opcion_3() -> str:
+    
+    """
+    Solicita y valida los datos ingresados por el usuario en "Promedios".
+    
+    Args:
+    Ninguno.
+
+    Returns:
+    Devuelve si el valor fue "1","2","3","4" o "5"
+
+    """
+    
     validacion = True
     opcion = input(mensaje_promedios_alumnos())
 
@@ -123,6 +170,22 @@ def validar_opcion_3() -> str:
     return opcion
 
 def cargar_alumnos(nombres_estudiantes:list,  generos_estudiantes:list, legajos:list) -> str:
+    
+    """
+    Solicita y valida los nombres, generos y legajos ingresados por el usuario.
+    
+    Args:
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    generos_estudiantes = Es una lista con los 3 generos existentes. 
+
+    legajos = Es una lista con los 30 legajos.
+
+    Returns:
+    Devuelve un mensaje de que "Los 30 alumnos fueron cargados correctamente!"
+
+    """
+    
     cantidad_alumnos = len(nombres_estudiantes)
     validacion_nombre = True
     
@@ -170,6 +233,22 @@ def cargar_alumnos(nombres_estudiantes:list,  generos_estudiantes:list, legajos:
             
 
 def cargar_notas_alumnos(nombres_estudiantes:list, notas_materias:list, promedios_alumnos:list) -> str:
+    
+    """
+    Solicita y valida las notas de los 30 alumnos uno por uno (Las notas son del 1 al 10).
+    
+    Args:
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    notas_materias = Es una matriz para volcar las notas en las 5 materias de los 30 alumnos.
+
+    promedios_alumnos = Es una lista para volvar los promedios de cada alumno en cada materia.
+
+    Returns:
+    Devuelve un mensaje de que "Las notas de los 30 alumnos fueron cargados correctamente!".
+
+    """
+    
     cantidad_alumnos = len(nombres_estudiantes)
     validacion = True
     
@@ -212,6 +291,25 @@ def cargar_notas_alumnos(nombres_estudiantes:list, notas_materias:list, promedio
     return ("Las notas de los 30 alumnos fueron cargados correctamente!")    
         
 def mostrar_un_alumno(legajos:list, generos_estudiantes:list, notas_materias:list, nombres_estudiantes:list) -> str:
+    
+    """
+    Muestra lista de alumnos y permite visualizar uno por medio del numero asignado inndividualmente a cada uno de ellos.
+    
+    Args:
+    legajos = Es una lista con los 30 legajos de los alumnos.
+
+    generos_estudiantes = Es una lista con los 3 generos.
+
+    notas_materias = Es una matriz para visualizar las notas en las 5 materias de los 30 alumnos.
+
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    Returns:
+    Devuelve un mensaje mostrando todos los datos del alumno elegido por el usuario".
+
+    """
+
+
     validacion = True
     posicion = None
     posicion_nombre_estudiantes = len(nombres_estudiantes)
@@ -257,6 +355,24 @@ def mostrar_un_alumno(legajos:list, generos_estudiantes:list, notas_materias:lis
 
 
 def mostrar_todos_alumnos(legajos:list, generos_estudiantes:list, notas_materias:list, nombres_estudiantes:list) -> str:
+    
+    """
+    Muestra lista de alumnos.
+    
+    Args:
+    legajos = Es una lista con los 30 legajos de los alumnos.
+
+    generos_estudiantes = Es una lista con los 3 generos.
+
+    notas_materias = Es una matriz para visualizar las notas en las 5 materias de los 30 alumnos.
+
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    Returns:
+    Devuelve un mensaje mostrando todos los datos de los alumnos.".
+
+    """
+    
     posicion = len(legajos)
 
     for i in range(posicion):
@@ -275,6 +391,25 @@ def mostrar_todos_alumnos(legajos:list, generos_estudiantes:list, notas_materias
    
 
 def mostrar_alumno_legajo_promedio(legajos:list, generos_estudiantes:list, notas_materias:list, nombres_estudiantes:list, promedios_alumnos:list) -> str:
+    
+    """
+    Muestra los datos de un alumno mas el promedio del mismo. Este sera buscado por su numero de legajo.
+    
+    Args:
+    legajos = Es una lista con los 30 legajos de los alumnos.
+
+    generos_estudiantes = Es una lista con los 3 generos.
+
+    notas_materias = Es una matriz para visualizar las notas en las 5 materias de los 30 alumnos.
+
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    promedios_alumnos = Es una lista con los promedios de los 30 alumnos.
+
+    Returns:
+    Devuelve un mensaje mostrando todos los datos del alumnos mas el promedio."
+    """
+    
     validacion = True
     posicion = None
     validacion_legajo = True
@@ -321,6 +456,25 @@ def mostrar_alumno_legajo_promedio(legajos:list, generos_estudiantes:list, notas
     )
 
 def mostrar_todos_alumnos_promedio(legajos:list, generos_estudiantes:list, notas_materias:list, nombres_estudiantes:list, promedios_alumnos:list) -> str:
+    
+    """
+    El metodo le da a elegir al usuario si quiere ver de forma ascendente o decendente todos los alumnos segun su promedio.
+    
+    Args:
+    legajos = Es una lista con los 30 legajos de los alumnos.
+
+    generos_estudiantes = Es una lista con los 3 generos.
+
+    notas_materias = Es una matriz para visualizar las notas en las 5 materias de los 30 alumnos.
+
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    promedios_alumnos = Es una lista con los promedios de los 30 alumnos.
+
+    Returns:
+    Devuelve un mensaje mostrando todos los datos de los alumnos mas el promedio."
+    """
+    
     posicion = len(legajos)
     verificacion_condicion = True
     while (verificacion_condicion):
@@ -355,6 +509,27 @@ def mostrar_todos_alumnos_promedio(legajos:list, generos_estudiantes:list, notas
 
 def funcion_orden_ascendente_decendente_promedios(legajos:list, generos_estudiantes:list, notas_materias:list, nombres_estudiantes:list, promedios_alumnos:list, condicion:str) -> list:
 
+    """
+    El metodo ordena las lista segun el promedio de una forma ascendente o decendente.
+    
+    Args:
+    legajos = Es una lista con los 30 legajos de los alumnos.
+
+    generos_estudiantes = Es una lista con los 3 generos.
+
+    notas_materias = Es una matriz para visualizar las notas en las 5 materias de los 30 alumnos.
+
+    nombres_estudiantes = Es una lista con los 30 nombres de los alumnos.
+
+    promedios_alumnos = Es una lista con los promedios de los 30 alumnos.
+
+    condicion = Determina si ordena las listas y matriz de forma ascendente o decendente.
+
+    Returns:
+    
+    """
+    
+    
     if (condicion == "1"):
         for i in range(0, len(promedios_alumnos)-1, 1):
         
@@ -409,6 +584,21 @@ def funcion_orden_ascendente_decendente_promedios(legajos:list, generos_estudian
                     notas_materias[j] = nota_auxiliar
         
 def mayor_promedio_materia(notas_materias:list, condicion:str) -> str:
+    
+    """
+    El metodo determina los promedio de acuerdo con las notas de los 30 alumnos.
+    
+    Args:
+
+    notas_materias = Es una matriz de las notas en las 5 materias de los 30 alumnos.
+
+    condicion = Determina si muestras todos los promedios de todas las materias o muestra con el mayor.
+
+    Returns:
+    Devuelve el promedio general de todas las materias.
+    Devuelve la materia con mayor promedio.
+    """
+    
     materia_1 = 0
     materia_2 = 0
     materia_3 = 0
