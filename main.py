@@ -1,5 +1,23 @@
 from Funciones_validaciones_datos import validaciones
 
+""""
+
+cantidad_alumnos = 30
+
+notas_materias = validaciones.inicializar_matriz(5,30,0)
+
+nombres_estudiantes = [""] * cantidad_alumnos
+
+generos_estudiantes = [""] * cantidad_alumnos
+
+
+promedios_alumnos = [0] * cantidad_alumnos
+
+
+"""""
+
+
+
 notas_materias = [
     [10, 10, 6, 10, 10], 
     [5, 6, 7, 8, 6], 
@@ -25,7 +43,7 @@ notas_materias = [
     [5, 4, 5, 4, 5], 
     [8, 8, 9, 9, 8], 
     [6, 7, 6, 7, 6], 
-    [10, 9, 9, 10, 9],
+    [7, 9, 9, 10, 9],
     [4, 3, 4, 3, 4], 
     [6, 6, 7, 6, 6], 
     [9, 10, 9, 10, 9], 
@@ -52,7 +70,17 @@ promedios_alumnos = [
     7, 7, 9, 7, 1
 ]
 
+
+
+
+
+
+
+
+
+
 salir_programa = True
+carga_alumnos = True
 
 while (salir_programa):
     salir_programa_1 = True
@@ -63,40 +91,51 @@ while (salir_programa):
     
     match(opcion):
         case "1":
-            while (salir_programa_1):
-                opcion_1 = validaciones.validar_opcion_1()
-                match(opcion_1):
-                    case "1":
-                        print(validaciones.cargar_alumnos(nombres_estudiantes, generos_estudiantes, legajos))
-                    case "2":
-                        print(validaciones.cargar_notas_alumnos(nombres_estudiantes, notas_materias,promedios_alumnos))
-                    case "3":
-                        salir_programa_1 = False
+           mensaje = (validaciones.cargar_alumnos(nombres_estudiantes, generos_estudiantes, legajos, notas_materias))
+           print (mensaje)
+           carga_alumnos = True
         case "2":
-           while (salir_programa_2):
-                opcion_2 = validaciones.validar_opcion_2()
-                match(opcion_2):
-                    case "1":
-                        print(validaciones.mostrar_un_alumno(legajos, generos_estudiantes, notas_materias, nombres_estudiantes))
-                    case "2":
-                        print(validaciones.mostrar_todos_alumnos(legajos, generos_estudiantes, notas_materias, nombres_estudiantes))
-                    case "3":
-                        salir_programa_2 = False    
+            if (carga_alumnos):
+                mensaje = validaciones.mostrar_un_alumno(legajos, generos_estudiantes, notas_materias, nombres_estudiantes)
+                print (mensaje)
+            else:
+                print("Debe cargar los alumnos primero para acceder a esta opcion:")
         case "3":
-            while (salir_programa_3):
-                opcion_3 = validaciones.validar_opcion_3()
-                match(opcion_3):
-                    case "1":
-                        print(validaciones.mostrar_alumno_legajo_promedio(legajos, generos_estudiantes, notas_materias, nombres_estudiantes, promedios_alumnos))
-                    case "2":
-                        print(validaciones.mostrar_todos_alumnos_promedio(legajos, generos_estudiantes, notas_materias, nombres_estudiantes, promedios_alumnos))
-                    case "3":
-                        condicion = "1"
-                        print(validaciones.mayor_promedio_materia(notas_materias, condicion))
-                    case "4":
-                        condicion = "2"
-                        print(validaciones.mayor_promedio_materia(notas_materias, condicion))
-                    case "5":
-                        salir_programa_3 = False 
+            if (carga_alumnos):
+                mensaje = validaciones.calcular_promedios(nombres_estudiantes, promedios_alumnos, notas_materias)
+                print(mensaje)
+            else:
+                print("Debe cargar los alumnos primero para acceder a esta opcion:")
+
+            
         case "4":
-            print("OPCION 4")
+            if (carga_alumnos):
+                mensaje = validaciones.mostrar_todos_alumnos_promedio(legajos, generos_estudiantes, notas_materias, nombres_estudiantes, promedios_alumnos)
+                print(mensaje)
+            else:
+                print("Debe cargar los alumnos primero para acceder a esta opcion:")
+
+        case "5":
+            if (carga_alumnos):
+                mensaje = validaciones.mayor_promedio_materia(notas_materias)
+                print(mensaje)
+            else:
+                print("Debe cargar los alumnos primero para acceder a esta opcion:")
+            
+
+        case "6":
+            if (carga_alumnos):
+                mensaje = validaciones.buscar_alumno_legajo_promedio(legajos, generos_estudiantes, notas_materias, nombres_estudiantes, promedios_alumnos)
+                print (mensaje)
+            else:
+                print("Debe cargar los alumnos primero para acceder a esta opcion:")
+
+        case "7":
+            if (carga_alumnos):
+                condicion = validaciones.numero_materia()
+                mensaje = validaciones.buscar_calificacion_repetida(notas_materias, condicion)
+                print (mensaje)
+            else:
+                print("Debe cargar los alumnos primero para acceder a esta opcion:")
+        case "8":
+            exit()
