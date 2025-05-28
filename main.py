@@ -80,7 +80,7 @@ promedios_alumnos = [
 
 
 salir_programa = True
-carga_alumnos = True
+carga_alumnos = False
 
 while (salir_programa):
     salir_programa_1 = True
